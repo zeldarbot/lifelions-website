@@ -2353,6 +2353,7 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     height: 120px;
     width: 100%;
     object-fit: cover;
+    object-position: top;
     border-radius: 20px 20px 0 0;
 }
 
