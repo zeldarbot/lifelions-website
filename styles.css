@@ -958,6 +958,7 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
    PRODUCTS SECTION
    =================================================================== */
 .products {
+    position: relative;
     background: var(--cream);
     overflow: hidden;
 }
