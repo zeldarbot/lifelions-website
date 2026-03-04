@@ -2425,3 +2425,15 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     font-size: 0.9rem;
     color: var(--text-secondary);
 }
+
+.why-link {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.why-link:hover {
+    color: var(--gold-dark);
+    text-decoration: underline;
+}
