@@ -1221,6 +1221,7 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 .hope-bg {
     position: absolute;
     inset: 0;
+    z-index: 0;
     background: 
         linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 40%, var(--burgundy) 100%);
 }
@@ -1548,6 +1549,7 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 .join-bg {
     position: absolute;
     inset: 0;
+    z-index: 0;
     background: var(--navy-dark);
 }
 
