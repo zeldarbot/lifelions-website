@@ -1195,6 +1195,18 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     overflow: hidden;
 }
 
+.hope-image {
+    position: absolute;
+    right: -5%;
+    bottom: -10%;
+    width: 45%;
+    max-width: 500px;
+    opacity: 0.25;
+    filter: grayscale(40%);
+    z-index: 1;
+    border-radius: 20px;
+}
+
 .hope-bg {
     position: absolute;
     inset: 0;
@@ -1300,6 +1312,21 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 .family-card:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-6px);
+}
+
+.family-card-image {
+    width: calc(100% + 56px);
+    height: 120px;
+    object-fit: cover;
+    margin: -32px -28px 16px -28px;
+    border-radius: 16px 16px 0 0;
+    opacity: 0.85;
+    filter: grayscale(20%);
+}
+
+.family-card:hover .family-card-image {
+    opacity: 1;
+    filter: grayscale(0%);
 }
 
 .family-card-icon {
