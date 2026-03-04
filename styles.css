@@ -295,6 +295,7 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .logo-icon { font-size: 1.6rem; }
+.logo-icon-img { width: 32px; height: 32px; object-fit: contain; }
 .logo-accent { color: var(--gold-light); }
 
 .nav-links {
@@ -621,6 +622,13 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .crisis-stat-icon {
     font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.crisis-stat-icon-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
     flex-shrink: 0;
 }
 
@@ -1330,11 +1338,15 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .family-card-image {
+    position: relative;
+    left: -28px;
     width: calc(100% + 56px);
+    max-width: none;
     height: 150px;
     object-fit: cover;
     object-position: center;
-    margin: -32px -28px 16px -28px;
+    margin-top: -32px;
+    margin-bottom: 16px;
     border-radius: 16px 16px 0 0;
     opacity: 0.9;
     filter: grayscale(10%);
