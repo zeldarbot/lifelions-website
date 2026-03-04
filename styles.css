@@ -1207,14 +1207,14 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .hope-image {
     position: absolute;
-    right: -5%;
-    bottom: -10%;
-    width: 45%;
-    max-width: 500px;
-    opacity: 0.25;
-    filter: grayscale(40%);
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    max-width: 550px;
+    opacity: 0.4;
+    filter: grayscale(20%);
     z-index: 1;
-    border-radius: 20px;
+    border-radius: 20px 0 0 0;
 }
 
 .hope-bg {
