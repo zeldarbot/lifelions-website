@@ -1359,6 +1359,32 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     justify-content: center;
 }
 
+.pride-visual-images {
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pride-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    transition: transform 0.4s var(--ease-out);
+}
+
+.pride-image:hover {
+    transform: scale(1.02);
+}
+
+.pride-image-1 {
+    transform: rotate(-2deg);
+}
+
+.pride-image-2 {
+    transform: rotate(2deg);
+    margin-top: -30px;
+}
+
 .pride-rings {
     position: relative;
     width: 220px;
