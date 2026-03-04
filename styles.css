@@ -2346,17 +2346,13 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 
 /* Pillar Showcase Image */
 .pillar-showcase-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
+    position: relative;
     width: 100%;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 20px 20px 0 0;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 16px;
 }
 
 .pillar-showcase:has(.pillar-showcase-image) {
-    padding-top: 140px;
+    padding-top: 48px;
 }
