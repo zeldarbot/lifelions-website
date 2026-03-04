@@ -2159,6 +2159,7 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .pillars-center {
+    position: relative;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -2166,6 +2167,27 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     background: white;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.pillars-center-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.pillars-center-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,35,54,0.7) 0%, rgba(26,35,54,0.5) 100%);
+    z-index: 1;
+}
+
+.pillars-center-content {
+    position: relative;
+    z-index: 2;
 }
 
 .pillars-center-icon {
@@ -2178,14 +2200,16 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--navy);
+    color: white;
     margin-bottom: 8px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .pillars-center-desc {
     font-family: var(--font-prose);
     font-size: 1rem;
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
 .pillars-grid {
