@@ -1424,6 +1424,11 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     transform: rotate(1deg);
 }
 
+.pride-image-single {
+    max-width: 350px;
+    transform: rotate(-1deg);
+}
+
 .pride-rings {
     position: relative;
     width: 220px;
@@ -1552,6 +1557,18 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     background: 
         radial-gradient(ellipse at 50% 0%, rgba(200, 150, 46, 0.15) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 80%, rgba(59, 130, 196, 0.08) 0%, transparent 40%);
+}
+
+.join-image {
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    width: 30%;
+    max-width: 300px;
+    opacity: 0.2;
+    filter: grayscale(40%);
+    z-index: 1;
+    border-radius: 16px;
 }
 
 .join-content {
