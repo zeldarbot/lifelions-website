@@ -1207,14 +1207,15 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .hope-image {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 50%;
-    max-width: 550px;
-    opacity: 0.4;
-    filter: grayscale(20%);
+    right: 5%;
+    bottom: 5%;
+    width: 40%;
+    max-width: 450px;
+    opacity: 0.7;
+    filter: grayscale(0%);
     z-index: 1;
-    border-radius: 20px 0 0 0;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
 }
 
 .hope-bg {
@@ -1564,11 +1565,12 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     left: 5%;
     bottom: 10%;
     width: 30%;
-    max-width: 300px;
-    opacity: 0.2;
-    filter: grayscale(40%);
+    max-width: 320px;
+    opacity: 0.6;
+    filter: grayscale(0%);
     z-index: 1;
     border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
 }
 
 .join-content {
