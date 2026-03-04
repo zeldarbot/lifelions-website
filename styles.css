@@ -2288,7 +2288,7 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 
 /* LifeLions Logo */
 .nav-logo-img {
-    height: 56px;
+    height: 72px;
     width: auto;
     object-fit: contain;
 }
