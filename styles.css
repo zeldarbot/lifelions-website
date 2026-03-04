@@ -2427,13 +2427,13 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .why-link {
-    color: var(--gold);
+    color: #4A90D9;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .why-link:hover {
-    color: var(--gold-dark);
+    color: #2E6BB5;
     text-decoration: underline;
 }
