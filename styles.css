@@ -1337,7 +1337,7 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .pride-visual {
     position: relative;
-    min-height: 400px;
+    min-height: 340px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1345,8 +1345,8 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .pride-rings {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 220px;
+    height: 220px;
 }
 
 .pride-ring {
@@ -1361,13 +1361,13 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .pride-ring-2 {
-    inset: -40px;
+    inset: -30px;
     border-color: rgba(200, 150, 46, 0.12);
     animation: ring-rotate 40s linear infinite reverse;
 }
 
 .pride-ring-3 {
-    inset: -80px;
+    inset: -60px;
     border-color: rgba(200, 150, 46, 0.06);
     animation: ring-rotate 50s linear infinite;
 }
@@ -1382,38 +1382,39 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     box-shadow: var(--shadow-gold);
     z-index: 2;
 }
 
 .pride-labels {
     position: absolute;
-    inset: -100px;
+    inset: -70px;
 }
 
 .pride-label {
     position: absolute;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-light);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--navy);
     letter-spacing: 0.05em;
     text-transform: uppercase;
+    opacity: 0.7;
 }
 
-.pride-label-1 { top: 5%; left: 50%; transform: translateX(-50%); }
-.pride-label-2 { top: 25%; right: -5%; }
-.pride-label-3 { bottom: 25%; right: -10%; }
-.pride-label-4 { bottom: 5%; left: 50%; transform: translateX(-50%); }
-.pride-label-5 { bottom: 25%; left: -10%; }
-.pride-label-6 { top: 25%; left: -5%; }
+.pride-label-1 { top: 10%; left: 50%; transform: translateX(-50%); }
+.pride-label-2 { top: 28%; right: 5%; }
+.pride-label-3 { bottom: 28%; right: 2%; }
+.pride-label-4 { bottom: 10%; left: 50%; transform: translateX(-50%); }
+.pride-label-5 { bottom: 28%; left: 2%; }
+.pride-label-6 { top: 28%; left: 5%; }
 
 .pride-values {
     display: grid;
@@ -1747,6 +1748,10 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
         min-height: 350px;
     }
 
+    .pride-labels {
+        display: none;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr 1fr;
         gap: 32px;
@@ -1849,6 +1854,10 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
         grid-template-columns: 1fr;
     }
 
+    .pride-labels {
+        display: none;
+    }
+
     .stories {
         padding: 80px 0;
     }
@@ -1912,35 +1921,4 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     color: rgba(255,255,255,0.6);
     font-size: 1rem;
     line-height: 1.7;
-}
-
-/* ===================================================================
-   LUCIDE ICONS
-   =================================================================== */
-.crisis-lucide-icon {
-    width: 28px;
-    height: 28px;
-    color: var(--gold);
-}
-
-.orbit-icon i,
-.pillar-icon i,
-.product-icon i,
-.family-card-icon i,
-.pride-value-icon i,
-.diagram-icon i {
-    width: 100%;
-    height: 100%;
-}
-
-/* Make sure Lucide icons inherit sizing from their parent containers */
-.orbit-icon svg,
-.pillar-icon svg,
-.product-icon svg,
-.family-card-icon svg,
-.pride-value-icon svg,
-.diagram-icon svg,
-.diagram-core svg {
-    width: 100%;
-    height: 100%;
 }
