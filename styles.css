@@ -1321,6 +1321,7 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(0,0,0,0.04);
+    overflow: hidden;
 }
 
 .family-card:hover {
@@ -1330,12 +1331,14 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 
 .family-card-image {
     width: calc(100% + 56px);
-    height: 140px;
+    height: 150px;
     object-fit: cover;
-    margin: -32px -28px 20px -28px;
+    object-position: center;
+    margin: -32px -28px 16px -28px;
     border-radius: 16px 16px 0 0;
     opacity: 0.9;
     filter: grayscale(10%);
+    display: block;
 }
 
 .family-card:hover .family-card-image {
