@@ -2365,29 +2365,29 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
 /* Why We Do This Section */
 .why-section {
     background: linear-gradient(180deg, var(--cream) 0%, #F0EBE1 100%);
-    padding: 100px 0;
+    padding: 60px 0;
     text-align: center;
 }
 
 .why-content {
-    max-width: 800px;
+    max-width: 650px;
     margin: 0 auto;
 }
 
-.why-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 300;
-    color: var(--charcoal);
-    margin-bottom: 24px;
-    line-height: 1.2;
+.why-text-compact {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
 }
 
-.why-text {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 20px;
+.why-verse-compact {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--gold-dark);
+    margin: 20px 0;
+    line-height: 1.6;
 }
 
 .why-cta {
