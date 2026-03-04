@@ -2285,3 +2285,16 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
         padding: 30px 40px;
     }
 }
+
+/* LifeLions Logo */
+.nav-logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-logo-img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
