@@ -2089,3 +2089,197 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     object-fit: contain;
     flex-shrink: 0;
 }
+
+/* ===== REDESIGNED APPROACH SECTION ===== */
+
+.approach-hero {
+    position: relative;
+    padding: 120px 0;
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    overflow: hidden;
+}
+
+.approach-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse at 30% 20%, rgba(200, 150, 46, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(59, 130, 196, 0.1) 0%, transparent 40%);
+}
+
+.approach-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-tag-light {
+    background: rgba(200, 150, 46, 0.2);
+    color: var(--gold);
+}
+
+.approach-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.approach-hero-accent {
+    display: block;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.approach-hero-lead {
+    font-family: var(--font-prose);
+    font-size: 1.15rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.approach-pillars {
+    padding: 100px 0;
+    background: var(--cream);
+}
+
+.pillars-intro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.pillars-center {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 60px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+.pillars-center-icon {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 16px;
+}
+
+.pillars-center-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.pillars-center-desc {
+    font-family: var(--font-prose);
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.pillar-showcase {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 48px 32px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: all 0.4s var(--ease-out);
+    overflow: hidden;
+}
+
+.pillar-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.4s var(--ease-out);
+}
+
+.pillar-showcase:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.pillar-showcase:hover::before {
+    transform: scaleX(1);
+}
+
+.pillar-showcase-icon {
+    margin-bottom: 20px;
+}
+
+.pillar-showcase-icon img {
+    width: 64px;
+    height: 64px;
+}
+
+.pillar-showcase-number {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+}
+
+.pillar-showcase-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+}
+
+.pillar-showcase-subtitle {
+    font-family: var(--font-prose);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--gold-dark);
+    margin-bottom: 16px;
+}
+
+.pillar-showcase-desc {
+    font-family: var(--font-prose);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+    .pillars-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .approach-hero {
+        padding: 80px 0;
+    }
+    
+    .pillars-center {
+        padding: 30px 40px;
+    }
+}
