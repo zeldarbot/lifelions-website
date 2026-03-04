@@ -584,6 +584,16 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     flex-direction: column;
 }
 
+.crisis-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    filter: grayscale(20%);
+}
+
 .crisis-stat-stack {
     display: flex;
     flex-direction: column;
