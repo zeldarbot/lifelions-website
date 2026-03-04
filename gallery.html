@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LifeLions — Charcoal Art Gallery & Storyboards</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F5F0E8;
+  --charcoal: #2A2A2A;
+  --warm-black: #1A1A1A;
+  --gold: #B8956A;
+  --gold-light: #D4B896;
+  --paper: #FAF6F0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--warm-black);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%);
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(184,149,106,0.06) 0%, transparent 70%);
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(3rem, 8vw, 7rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.hero .subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  color: var(--gold-light);
+  letter-spacing: 0.08em;
+  margin-bottom: 40px;
+}
+
+.hero .tagline {
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.4);
+  max-width: 700px;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 32px auto;
+  opacity: 0.6;
+}
+
+/* NAVIGATION */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(26,26,26,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(184,149,106,0.15);
+  padding: 16px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--gold-light);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+nav a:hover { opacity: 1; }
+
+/* SECTIONS */
+.section {
+  padding: 80px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+
+.section-header p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* GALLERY GRID */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 40px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--charcoal);
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover { transform: scale(1.02); }
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  transition: opacity 0.4s;
+}
+
+.gallery-item .caption {
+  padding: 20px 24px;
+  background: linear-gradient(180deg, transparent 0%, rgba(26,26,26,0.95) 100%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.gallery-item .caption h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.gallery-item .caption span {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.gallery-featured { grid-column: span 2; }
+
+@media (max-width: 900px) {
+  .gallery { grid-template-columns: 1fr; }
+  .gallery-featured { grid-column: span 1; }
+}
+
+/* STORYBOARD SECTION */
+.storyboard {
+  margin-bottom: 100px;
+}
+
+.storyboard-title {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.storyboard-title h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: var(--cream);
+}
+
+.storyboard-title .product-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.storyboard-strip {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 24px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
+}
+
+.storyboard-strip::-webkit-scrollbar { height: 4px; }
+.storyboard-strip::-webkit-scrollbar-track { background: transparent; }
+.storyboard-strip::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+.storyboard-frame {
+  flex: 0 0 auto;
+  width: 380px;
+  scroll-snap-align: start;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--charcoal);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.storyboard-frame:hover { transform: scale(1.03); }
+
+.storyboard-frame img {
+  width: 100%;
+  display: block;
+}
+
+.storyboard-frame .frame-label {
+  padding: 12px 16px;
+  font-size: 0.75rem;
+  color: rgba(245,240,232,0.6);
+  letter-spacing: 0.1em;
+}
+
+.narration {
+  margin-top: 32px;
+  padding: 40px;
+  border-left: 2px solid var(--gold);
+  background: rgba(184,149,106,0.03);
+  max-width: 800px;
+}
+
+.narration .narration-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.narration p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: rgba(245,240,232,0.8);
+  line-height: 1.9;
+  margin-bottom: 12px;
+}
+
+.narration .tagline-end {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--gold-light);
+  margin-top: 20px;
+}
+
+/* STORIES (original) */
+.stories {
+  display: grid;
+  gap: 60px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.story {
+  padding: 40px;
+  border-left: 2px solid var(--gold);
+  background: rgba(184,149,106,0.03);
+}
+
+.story h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.story .product-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.story p {
+  color: rgba(245,240,232,0.75);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.story .arc {
+  margin-top: 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold-light);
+  font-size: 0.9rem;
+}
+
+/* PRODUCTS */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.product-card {
+  padding: 32px;
+  border: 1px solid rgba(184,149,106,0.15);
+  border-radius: 4px;
+  background: rgba(184,149,106,0.03);
+  transition: border-color 0.3s;
+}
+
+.product-card:hover { border-color: rgba(184,149,106,0.4); }
+
+.product-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.product-card .tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold-light);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.product-card p {
+  color: rgba(245,240,232,0.65);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* ROADMAP */
+.roadmap { max-width: 800px; margin: 0 auto; }
+
+.phase {
+  padding: 32px 0 32px 40px;
+  border-left: 2px solid rgba(184,149,106,0.2);
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.phase::before {
+  content: '';
+  width: 12px; height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: absolute;
+  left: -7px; top: 36px;
+}
+
+.phase h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.phase .timeline {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.phase ul { list-style: none; padding: 0; }
+
+.phase li {
+  color: rgba(245,240,232,0.65);
+  font-size: 0.9rem;
+  padding: 4px 0 4px 16px;
+  position: relative;
+}
+
+.phase li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+/* DOCS */
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.doc-card {
+  padding: 24px;
+  border: 1px solid rgba(184,149,106,0.12);
+  border-radius: 4px;
+  background: rgba(184,149,106,0.02);
+}
+
+.doc-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.doc-card .size {
+  font-size: 0.7rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.doc-card p {
+  font-size: 0.8rem;
+  color: rgba(245,240,232,0.55);
+  line-height: 1.6;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.lightbox.active { display: flex; }
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.lightbox .lb-caption {
+  position: fixed;
+  bottom: 32px;
+  left: 0; right: 0;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+}
+
+.lightbox .lb-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: var(--cream);
+  opacity: 0.5;
+  cursor: pointer;
+  padding: 20px;
+  user-select: none;
+  transition: opacity 0.3s;
+}
+
+.lightbox .lb-nav:hover { opacity: 1; }
+.lightbox .lb-prev { left: 20px; }
+.lightbox .lb-next { right: 20px; }
+.lightbox .lb-close {
+  position: fixed;
+  top: 20px; right: 30px;
+  font-size: 2rem;
+  color: var(--cream);
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+.lightbox .lb-close:hover { opacity: 1; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 80px 40px;
+  border-top: 1px solid rgba(184,149,106,0.1);
+}
+
+footer .lion { font-size: 3rem; margin-bottom: 16px; }
+
+footer p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+footer .copyright {
+  margin-top: 24px;
+  font-size: 0.7rem;
+  color: rgba(245,240,232,0.3);
+  letter-spacing: 0.15em;
+  font-style: normal;
+  font-family: 'DM Sans', sans-serif;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>LifeLions</h1>
+  <div class="subtitle">Stories from the Pride</div>
+  <div class="divider"></div>
+  <div class="tagline">A charcoal art collection &amp; storyboard studio for the mission to cure Alzheimer's — inspired by Kobe Bryant's "Dear Basketball"</div>
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#storyboards">Storyboards</a>
+  <a href="#gallery-care">Care & Family</a>
+  <a href="#gallery-health">Health</a>
+  <a href="#gallery-nature">Nature & Therapy</a>
+  <a href="#gallery-community">Community</a>
+  <a href="#gallery-caregiving">Caregiving</a>
+  <a href="#gallery-spirit">Spirit</a>
+  <a href="#gallery-lions">Lions</a>
+  <a href="#gallery-new">New Art</a>
+  <a href="#biscuit">Biscuit</a>
+  <a href="#animations">Animations</a>
+  <a href="#products">Products</a>
+  <a href="#roadmap">Roadmap</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- STORYBOARDS -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="storyboards">
+  <div class="section-header">
+    <h2>Storyboards</h2>
+    <p>Seven charcoal animation sequences — keyframes for "Dear Basketball"-style short films</p>
+  </div>
+
+  <!-- Story 1: The Numbers -->
+  <div class="storyboard">
+    <div class="storyboard-title">
+      <h3>"The Numbers"</h3>
+      <span class="product-tag">LionGuard — AI Health Concierge</span>
+    </div>
+    <div class="storyboard-strip">
+      <div class="storyboard-frame" onclick="openLightbox(25)">
+        <img src="art/storyboards/01-the-numbers/frame-01.jpg" loading="lazy" alt="Maria watching her mother">
+        <div class="frame-label">01 — Maria watches her mother stare blankly out a window</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(26)">
+        <img src="art/storyboards/01-the-numbers/frame-02.jpg" loading="lazy" alt="Maria with test results">
+        <div class="frame-label">02 — Holding the blood test results, overwhelmed</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(27)">
+        <img src="art/storyboards/01-the-numbers/frame-03.jpg" loading="lazy" alt="Maria's fear">
+        <div class="frame-label">03 — Close-up: fear, the paper crumpled in her hands</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(28)">
+        <img src="art/storyboards/01-the-numbers/frame-04.jpg" loading="lazy" alt="Light breaking through">
+        <div class="frame-label">04 — Hands holding a phone — clarity emerging, light breaking through</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(29)">
+        <img src="art/storyboards/01-the-numbers/frame-05.jpg" loading="lazy" alt="Understanding">
+        <div class="frame-label">05 — Fear transforms to understanding, a subtle smile</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(30)">
+        <img src="art/storyboards/01-the-numbers/frame-06.jpg" loading="lazy" alt="Desert sunrise hike">
+        <div class="frame-label">06 — Hiking the Arizona desert at sunrise, strong and determined</div>
+      </div>
+    </div>
+    <div class="narration">
+      <span class="narration-label">Narration Script — Maria's Voice</span>
+      <p>I watched my mother disappear behind her own eyes.</p>
+      <p>Not all at once. In numbers. The ones the doctor circled in red. The ones I Googled at two in the morning, hands shaking, screen blurring.</p>
+      <p>I held that paper like a verdict. Like the world had already decided.</p>
+      <p>But numbers don't know my mother. They don't know the woman who crossed a border with nothing and built everything. They don't know her hands — how they braided my hair, how they held me when the world was too loud.</p>
+      <p>So I learned what the numbers actually meant. Not a sentence. A signal. Not too late — just <em>in time.</em></p>
+      <p>I started walking. Desert mornings, before the heat. One foot, then the other. The same way she taught me.</p>
+      <p>The numbers are just numbers. What I do with them — that's the story.</p>
+      <p class="tagline-end">You are not alone. You are pride.</p>
+    </div>
+  </div>
+
+  <!-- Story 2: Paperwork Monster -->
+  <div class="storyboard">
+    <div class="storyboard-title">
+      <h3>"The Paperwork Monster"</h3>
+      <span class="product-tag">LionShield — Insurance Navigator</span>
+    </div>
+    <div class="storyboard-strip">
+      <div class="storyboard-frame" onclick="openLightbox(31)">
+        <img src="art/storyboards/02-paperwork-monster/frame-01.jpg" loading="lazy" alt="David at table">
+        <div class="frame-label">01 — David at the kitchen table, midnight, papers everywhere</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(32)">
+        <img src="art/storyboards/02-paperwork-monster/frame-02.jpg" loading="lazy" alt="Paper monster">
+        <div class="frame-label">02 — Papers multiplying into a surreal monster</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(33)">
+        <img src="art/storyboards/02-paperwork-monster/frame-03.jpg" loading="lazy" alt="David defeated">
+        <div class="frame-label">03 — Head in hands, defeated</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(34)">
+        <img src="art/storyboards/02-paperwork-monster/frame-04.jpg" loading="lazy" alt="Golden shield">
+        <div class="frame-label">04 — A golden shield dissolves the paper monster</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(35)">
+        <img src="art/storyboards/02-paperwork-monster/frame-05.jpg" loading="lazy" alt="Garden peace">
+        <div class="frame-label">05 — Morning — David and his father in the garden, peaceful</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(36)">
+        <img src="art/storyboards/02-paperwork-monster/frame-06.jpg" loading="lazy" alt="Hands together">
+        <div class="frame-label">06 — Their hands together. He can't remember, but he feels the love.</div>
+      </div>
+    </div>
+    <div class="narration">
+      <span class="narration-label">Narration Script — David's Voice</span>
+      <p>It started with one envelope.</p>
+      <p>Then ten. Then a tower. Insurance codes I couldn't pronounce. Denials for things Dad needed yesterday. Forms that asked questions no human should have to answer at midnight.</p>
+      <p>I am not a lawyer. I am not a nurse. I am a son whose father forgot his name on a Tuesday, and the world responded with paperwork.</p>
+      <p>The monster grew. It fed on my sleep, my patience, the hours I should've spent just sitting with him.</p>
+      <p>Then someone said: <em>You don't have to fight this alone.</em></p>
+      <p>And the monster — the one made of paper and bureaucracy and impossible choices — it shrank. Not because it disappeared. Because I wasn't facing it by myself anymore.</p>
+      <p>This morning, Dad and I sat in the garden. He doesn't know my name. But he held my hand. And that was everything.</p>
+      <p class="tagline-end">You are not alone. You are pride.</p>
+    </div>
+  </div>
+
+  <!-- Story 3: Stranger in the House -->
+  <div class="storyboard">
+    <div class="storyboard-title">
+      <h3>"The Stranger in the House"</h3>
+      <span class="product-tag">LionHeart Care — Caregiver Marketplace</span>
+    </div>
+    <div class="storyboard-strip">
+      <div class="storyboard-frame" onclick="openLightbox(37)">
+        <img src="art/storyboards/03-stranger-house/frame-01.jpg" loading="lazy" alt="Sandra defiant">
+        <div class="frame-label">01 — Sandra, arms crossed, defiant in her chair</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(38)">
+        <img src="art/storyboards/03-stranger-house/frame-02.jpg" loading="lazy" alt="Cold caregiver">
+        <div class="frame-label">02 — A cold, clinical caregiver in the doorway</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(39)">
+        <img src="art/storyboards/03-stranger-house/frame-03.jpg" loading="lazy" alt="Sandra alone">
+        <div class="frame-label">03 — Sandra looking out the window, alone</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(40)">
+        <img src="art/storyboards/03-stranger-house/frame-04.jpg" loading="lazy" alt="Rosa arrives">
+        <div class="frame-label">04 — Rosa arrives with a small potted plant</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(41)">
+        <img src="art/storyboards/03-stranger-house/frame-05.jpg" loading="lazy" alt="Garden together">
+        <div class="frame-label">05 — Hands in garden soil together, arms uncrossed</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(42)">
+        <img src="art/storyboards/03-stranger-house/frame-06.jpg" loading="lazy" alt="Sandra laughing">
+        <div class="frame-label">06 — Sandra laughing, genuinely happy</div>
+      </div>
+    </div>
+    <div class="narration">
+      <span class="narration-label">Narration Script — Sandra's Voice</span>
+      <p>I didn't ask for help. I don't need help. I've run this house for fifty-two years.</p>
+      <p>They sent someone. Clipboard. Rubber shoes. She rearranged my kitchen and called me "sweetie."</p>
+      <p>I sat in my chair with my arms crossed and waited for her to leave.</p>
+      <p>Then Rosa came.</p>
+      <p>Rosa came with a potted plant and dirt under her fingernails. She didn't rearrange anything. She asked where I kept the good scissors. She laughed at the wrong things and I couldn't help laughing too.</p>
+      <p>We planted tomatoes.</p>
+      <p>My hands remembered before I did. The soil. The roots. Something about growing a thing from nothing — it brought me back to myself.</p>
+      <p>Rosa isn't a stranger. She's the person who bothered to find out who I was before I got sick.</p>
+      <p>That's not care. That's <em>pride.</em></p>
+      <p class="tagline-end">You are not alone. You are pride.</p>
+    </div>
+  </div>
+
+  <!-- Story 4: Bear -->
+  <div class="storyboard">
+    <div class="storyboard-title">
+      <h3>"Bear"</h3>
+      <span class="product-tag">LionHeart Therapy — Pet Therapy</span>
+    </div>
+    <div class="storyboard-strip">
+      <div class="storyboard-frame" onclick="openLightbox(43)">
+        <img src="art/storyboards/04-bear/frame-01.jpg" loading="lazy" alt="James alone">
+        <div class="frame-label">01 — James, retired firefighter, sitting alone in an empty house</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(44)">
+        <img src="art/storyboards/04-bear/frame-02.jpg" loading="lazy" alt="Bear arrives">
+        <div class="frame-label">02 — A massive Great Pyrenees led through the door</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(45)">
+        <img src="art/storyboards/04-bear/frame-03.jpg" loading="lazy" alt="James resistant">
+        <div class="frame-label">03 — James turning away, resistant</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(46)">
+        <img src="art/storyboards/04-bear/frame-04.jpg" loading="lazy" alt="Bear patient">
+        <div class="frame-label">04 — Bear at his feet, patient. James ignoring him.</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(47)">
+        <img src="art/storyboards/04-bear/frame-05.jpg" loading="lazy" alt="James crying">
+        <div class="frame-label">05 — Bear's head on James's chest. James crying with relief.</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(48)">
+        <img src="art/storyboards/04-bear/frame-06.jpg" loading="lazy" alt="Face in fur">
+        <div class="frame-label">06 — James burying his face in Bear's fur</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(49)">
+        <img src="art/storyboards/04-bear/frame-07.jpg" loading="lazy" alt="Walking together">
+        <div class="frame-label">07 — James and Bear walking together, side by side</div>
+      </div>
+    </div>
+    <div class="narration">
+      <span class="narration-label">Narration Script — James's Voice</span>
+      <p>Forty years, I ran into burning buildings. I carried people out. That was the job.</p>
+      <p>Now the building is my own mind, and I can't find the exit.</p>
+      <p>My daughter brought a dog. A ridiculous, enormous, white dog named Bear. I told her to take him back.</p>
+      <p>Bear didn't listen.</p>
+      <p>He lay at my feet. He didn't need me to be strong. He didn't need me to remember. He just... stayed.</p>
+      <p>One morning I woke up and his head was on my chest. Two hundred pounds of warm, breathing patience. And I cried.</p>
+      <p>Not because I was sad. Because for the first time in months, I didn't feel like I was disappearing.</p>
+      <p>Bear doesn't know I was a firefighter. He doesn't know I'm forgetting. He just knows I'm here. And he's not leaving.</p>
+      <p>Neither am I.</p>
+      <p class="tagline-end">You are not alone. You are pride.</p>
+    </div>
+  </div>
+
+  <!-- Story 5: The Last Painting -->
+  <div class="storyboard">
+    <div class="storyboard-title">
+      <h3>"The Last Painting"</h3>
+      <span class="product-tag">LionHeart Therapy — Art Therapy</span>
+    </div>
+    <div class="storyboard-strip">
+      <div class="storyboard-frame" onclick="openLightbox(50)">
+        <img src="art/storyboards/05-last-painting/frame-01.jpg" loading="lazy" alt="Eleanor's house">
+        <div class="frame-label">01 — Walls covered in her paintings, Eleanor sits vacant</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(51)">
+        <img src="art/storyboards/05-last-painting/frame-02.jpg" loading="lazy" alt="Charcoal in hand">
+        <div class="frame-label">02 — Charcoal in her hand, her daughter watching with worry</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(52)">
+        <img src="art/storyboards/05-last-painting/frame-03.jpg" loading="lazy" alt="Hand moving">
+        <div class="frame-label">03 — Her hand moves — shaky but purposeful</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(53)">
+        <img src="art/storyboards/05-last-painting/frame-04.jpg" loading="lazy" alt="Lion emerging">
+        <div class="frame-label">04 — The drawing emerging — a lion taking shape</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(54)">
+        <img src="art/storyboards/05-last-painting/frame-05.jpg" loading="lazy" alt="Eleanor smiling">
+        <div class="frame-label">05 — Eleanor smiling — the real smile, back at last</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(55)">
+        <img src="art/storyboards/05-last-painting/frame-06.jpg" loading="lazy" alt="Lion drawing held up">
+        <div class="frame-label">06 — The completed lion drawing, rough and magnificent</div>
+      </div>
+    </div>
+    <div class="narration">
+      <span class="narration-label">Narration Script — Eleanor's Daughter</span>
+      <p>Mom painted every day of her life. Watercolors. Oils. The walls of our house are a museum of everything she saw and loved.</p>
+      <p>Then she stopped seeing.</p>
+      <p>Not her eyes — her eyes are fine. But the thing behind them, the thing that made her pick up a brush and turn light into color — it went quiet.</p>
+      <p>We put charcoal in her hand. No expectation. No hope, honestly. Just... something to hold.</p>
+      <p>Her hand moved. Shaky. Slow. But <em>purposeful.</em></p>
+      <p>She drew a lion.</p>
+      <p>Rough and raw and nothing like her old work. But alive. Every mark intentional, every stroke a choice her mind was still making.</p>
+      <p>She smiled. The real one. The one I thought was gone.</p>
+      <p>The disease took so much. But it didn't take <em>this.</em> It didn't take the artist. She's still in there, drawing lions in the dark.</p>
+      <p class="tagline-end">You are not alone. You are pride.</p>
+    </div>
+  </div>
+
+  <!-- Story 6: 4 AM -->
+  <div class="storyboard">
+    <div class="storyboard-title">
+      <h3>"4 AM"</h3>
+      <span class="product-tag">Caregiver Wellness</span>
+    </div>
+    <div class="storyboard-strip">
+      <div class="storyboard-frame" onclick="openLightbox(56)">
+        <img src="art/storyboards/06-four-am/frame-01.jpg" loading="lazy" alt="4 AM darkness">
+        <div class="frame-label">01 — Keisha awake at 4 AM, barely visible in shadow</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(57)">
+        <img src="art/storyboards/06-four-am/frame-02.jpg" loading="lazy" alt="Blue light">
+        <div class="frame-label">02 — Blue light on her face, searching</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(58)">
+        <img src="art/storyboards/06-four-am/frame-03.jpg" loading="lazy" alt="Other faces">
+        <div class="frame-label">03 — Other caregivers awake at 4 AM too</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(59)">
+        <img src="art/storyboards/06-four-am/frame-04.jpg" loading="lazy" alt="Release">
+        <div class="frame-label">04 — Crying — release, not defeat</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(60)">
+        <img src="art/storyboards/06-four-am/frame-05.jpg" loading="lazy" alt="Dawn">
+        <div class="frame-label">05 — Dawn light creeping through the window</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(61)">
+        <img src="art/storyboards/06-four-am/frame-06.jpg" loading="lazy" alt="Sunrise">
+        <div class="frame-label">06 — Sunrise — standing at the window, still tired but not alone</div>
+      </div>
+    </div>
+    <div class="narration">
+      <span class="narration-label">Narration Script — Keisha's Voice</span>
+      <p>Four in the morning, and I'm awake again.</p>
+      <p>Not because of an alarm. Because the worry has its own clock. Did I give her the right dose? Is she breathing okay? When did I last eat?</p>
+      <p>I pick up my phone. Not to scroll. To search. <em>How to not lose yourself while losing someone.</em></p>
+      <p>And there they are. Other faces. Other 4 AMs. A woman in Ohio with the same dark circles. A man in Texas who hasn't slept through the night in eight months. A daughter in Phoenix who just typed: <em>Is anyone else awake?</em></p>
+      <p>Yes. I'm awake.</p>
+      <p>And for the first time, being awake at four in the morning doesn't feel like drowning. It feels like finding the others who are treading water too.</p>
+      <p>Dawn comes. It always does. I'm still tired. But I'm not alone.</p>
+      <p class="tagline-end">You are not alone. You are pride.</p>
+    </div>
+  </div>
+
+  <!-- Story 7: The Pride -->
+  <div class="storyboard">
+    <div class="storyboard-title">
+      <h3>"The Pride"</h3>
+      <span class="product-tag">LifeLions — Brand Anthem</span>
+    </div>
+    <div class="storyboard-strip">
+      <div class="storyboard-frame" onclick="openLightbox(62)">
+        <img src="art/storyboards/07-the-pride/frame-01.jpg" loading="lazy" alt="Single line">
+        <div class="frame-label">01 — A single charcoal line on empty cream paper</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(63)">
+        <img src="art/storyboards/07-the-pride/frame-02.jpg" loading="lazy" alt="Lion emerges">
+        <div class="frame-label">02 — The line becomes a lion</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(64)">
+        <img src="art/storyboards/07-the-pride/frame-03.jpg" loading="lazy" alt="Grandmother emerges">
+        <div class="frame-label">03 — A grandmother figure emerges from charcoal behind the lion</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(65)">
+        <img src="art/storyboards/07-the-pride/frame-04.jpg" loading="lazy" alt="Figures joining">
+        <div class="frame-label">04 — A caregiver, a doctor, a dog, a child — all joining</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(66)">
+        <img src="art/storyboards/07-the-pride/frame-05.jpg" loading="lazy" alt="Scenes flashing">
+        <div class="frame-label">05 — Hands holding, meals shared, yoga at sunrise</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(67)">
+        <img src="art/storyboards/07-the-pride/frame-06.jpg" loading="lazy" alt="Garden prayer">
+        <div class="frame-label">06 — A garden, a painting, a puzzle, prayer in soft light</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(68)">
+        <img src="art/storyboards/07-the-pride/frame-07.jpg" loading="lazy" alt="Full pride">
+        <div class="frame-label">07 — The lion at center, surrounded by its pride</div>
+      </div>
+      <div class="storyboard-frame" onclick="openLightbox(69)">
+        <img src="art/storyboards/07-the-pride/frame-08.jpg" loading="lazy" alt="You are pride">
+        <div class="frame-label">08 — "You are not alone. You are pride."</div>
+      </div>
+    </div>
+    <div class="narration">
+      <span class="narration-label">Narration Script — A Letter from Justin</span>
+      <p>Dear Mom,</p>
+      <p>I didn't know what to do. So I drew a line.</p>
+      <p>One line on empty paper. And the line became a lion. And the lion started walking. And behind it — I saw you.</p>
+      <p>You, reaching for my hand across a kitchen table. You, forgetting and then remembering and then forgetting again. You, still <em>you</em> inside all of it.</p>
+      <p>And behind you — everyone. The son buried in paperwork. The woman who said <em>I don't need help</em> and meant <em>I'm terrified.</em> The firefighter who couldn't find the exit. The daughter up at 4 AM.</p>
+      <p>The caregiver. The doctor. The dog who just showed up and stayed.</p>
+      <p>We are not a company. We are a pride. The way lions are — fierce, together, protecting what matters.</p>
+      <p>I drew a line because I didn't know what else to do.</p>
+      <p>The line became this.</p>
+      <p class="tagline-end">You are not alone. You are pride.</p>
+      <p style="color: var(--gold); font-style: normal; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; margin-top: 16px;">— LifeLions</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- ORIGINAL GALLERY SECTIONS -->
+<!-- ═══════════════════════════════════════════════ -->
+
+<!-- CARE & FAMILY -->
+<div class="section" id="gallery-care">
+  <div class="section-header">
+    <h2>Care & Family</h2>
+    <p>The bonds that hold us together when memory lets go</p>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item gallery-featured" onclick="openLightbox(0)">
+      <img src="art/charcoal/01-grandmother-daughter-holding-hands.jpg" alt="Grandmother and daughter holding hands" loading="lazy">
+      <div class="caption"><h3>Holding On</h3><span>Grandmother & Daughter</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(1)">
+      <img src="art/charcoal/02-three-generations.jpg" alt="Three generations together" loading="lazy">
+      <div class="caption"><h3>Three Generations</h3><span>The Thread That Connects</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(2)">
+      <img src="art/charcoal/03-son-helping-father-garden.jpg" alt="Son helping father in garden" loading="lazy">
+      <div class="caption"><h3>The Garden</h3><span>Son & Father</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(3)">
+      <img src="art/charcoal/04-family-dinner-table.jpg" alt="Family dinner table" loading="lazy">
+      <div class="caption"><h3>The Table</h3><span>Where Stories Live</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- HEALTH & WELLNESS -->
+<div class="section" id="gallery-health">
+  <div class="section-header">
+    <h2>Health & Wellness</h2>
+    <p>The body remembers what the mind forgets — nourish it</p>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item" onclick="openLightbox(4)">
+      <img src="art/charcoal/05-elderly-yoga-sunlight.jpg" alt="Elderly person doing yoga" loading="lazy">
+      <div class="caption"><h3>Morning Practice</h3><span>Yoga at Sunrise</span></div>
+    </div>
+    <div class="gallery-item gallery-featured" onclick="openLightbox(5)">
+      <img src="art/charcoal/06-doctor-patient-hopeful.jpg" alt="Doctor and patient" loading="lazy">
+      <div class="caption"><h3>The Numbers</h3><span>Hope in the Results</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(6)">
+      <img src="art/charcoal/07-mediterranean-meal-prep.jpg" alt="Mediterranean meal preparation" loading="lazy">
+      <div class="caption"><h3>Nourishment</h3><span>Food as Medicine</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(7)">
+      <img src="art/charcoal/08-elderly-couple-nature-trail.jpg" alt="Couple on nature trail" loading="lazy">
+      <div class="caption"><h3>The Trail</h3><span>Walking Together</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- NATURE & THERAPY -->
+<div class="section" id="gallery-nature">
+  <div class="section-header">
+    <h2>Nature & Therapy</h2>
+    <p>The healing power of paws, soil, and sky</p>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item gallery-featured" onclick="openLightbox(8)">
+      <img src="art/charcoal/09-dog-beside-elderly-person.jpg" alt="Dog beside elderly person" loading="lazy">
+      <div class="caption"><h3>Bear</h3><span>The One Who Never Forgets</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(9)">
+      <img src="art/charcoal/10-elderly-gardening.jpg" alt="Elderly person gardening" loading="lazy">
+      <div class="caption"><h3>Hands in Soil</h3><span>Grounding</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(10)">
+      <img src="art/charcoal/11-garden-cat-lap.jpg" alt="Person with cat in garden" loading="lazy">
+      <div class="caption"><h3>The Garden Keeper</h3><span>Peace & Presence</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(11)">
+      <img src="art/charcoal/12-walking-dog-forest.jpg" alt="Walking dog through forest" loading="lazy">
+      <div class="caption"><h3>The Forest Path</h3><span>Companion</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section" id="gallery-community">
+  <div class="section-header">
+    <h2>Joy & Community</h2>
+    <p>We are stronger together — the pride gathers</p>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item" onclick="openLightbox(12)">
+      <img src="art/charcoal/13-seniors-laughing-community.jpg" alt="Seniors laughing together" loading="lazy">
+      <div class="caption"><h3>The Gathering</h3><span>Laughter as Medicine</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(13)">
+      <img src="art/charcoal/14-art-therapy-easel.jpg" alt="Art therapy at easel" loading="lazy">
+      <div class="caption"><h3>The Last Painting</h3><span>Hands Remember</span></div>
+    </div>
+    <div class="gallery-item gallery-featured" onclick="openLightbox(14)">
+      <img src="art/charcoal/15-grandparent-reading-child.jpg" alt="Grandparent reading to child" loading="lazy">
+      <div class="caption"><h3>Story Time</h3><span>Passing the Flame</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(15)">
+      <img src="art/charcoal/16-community-holding-hands.jpg" alt="Community holding hands" loading="lazy">
+      <div class="caption"><h3>The Circle</h3><span>Unbroken</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CAREGIVING -->
+<div class="section" id="gallery-caregiving">
+  <div class="section-header">
+    <h2>Caregiving</h2>
+    <p>For the ones who show up every day — especially the hard days</p>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item" onclick="openLightbox(16)">
+      <img src="art/charcoal/17-caregiver-assisting.jpg" alt="Caregiver assisting" loading="lazy">
+      <div class="caption"><h3>Gentle Hands</h3><span>Professional Care</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(17)">
+      <img src="art/charcoal/18-puzzle-together.jpg" alt="Puzzle together" loading="lazy">
+      <div class="caption"><h3>The Puzzle</h3><span>Patience & Presence</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(18)">
+      <img src="art/charcoal/19-caregiver-rest.jpg" alt="Caregiver resting" loading="lazy">
+      <div class="caption"><h3>4 AM</h3><span>The Unseen Sacrifice</span></div>
+    </div>
+    <div class="gallery-item gallery-featured" onclick="openLightbox(19)">
+      <img src="art/charcoal/20-hands-closeup.jpg" alt="Hands close-up" loading="lazy">
+      <div class="caption"><h3>Holding On</h3><span>The Language of Touch</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FAITH & SPIRIT -->
+<div class="section" id="gallery-spirit">
+  <div class="section-header">
+    <h2>Faith & Spirit</h2>
+    <p>The soul endures what the body cannot</p>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item" onclick="openLightbox(20)">
+      <img src="art/charcoal/21-prayer-soft-light.jpg" alt="Prayer in soft light" loading="lazy">
+      <div class="caption"><h3>Quiet Prayer</h3><span>Surrender</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(21)">
+      <img src="art/charcoal/22-desert-sunrise-contemplation.jpg" alt="Desert sunrise contemplation" loading="lazy">
+      <div class="caption"><h3>Desert Dawn</h3><span>Arizona Contemplation</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- LIONS -->
+<div class="section" id="gallery-lions">
+  <div class="section-header">
+    <h2>The Lions</h2>
+    <p>Noble, brave, courageous, caring, strong — we are the pride</p>
+  </div>
+  <div class="gallery">
+    <div class="gallery-item gallery-featured" onclick="openLightbox(22)">
+      <img src="art/charcoal/23-lion-protecting-lamb.jpg" alt="Lion protecting lamb" loading="lazy">
+      <div class="caption"><h3>Guardian</h3><span>The Lion & The Lamb</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(23)">
+      <img src="art/charcoal/24-lion-family.jpg" alt="Lion family" loading="lazy">
+      <div class="caption"><h3>The Pride</h3><span>Family</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(24)">
+      <img src="art/charcoal/25-great-pyrenees-guardian.jpg" alt="Great Pyrenees guardian" loading="lazy">
+      <div class="caption"><h3>The Protector</h3><span>Great Pyrenees — Biscuit's Spirit</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- NEW ART PIECES -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="section" id="gallery-new">
+  <div class="section-header">
+    <h2>New Collection</h2>
+    <p>Close-ups, emotional moments, Biscuit, Arizona, and the abstract spirit of care</p>
+  </div>
+
+  <!-- Close-ups & Emotional -->
+  <div class="gallery" style="margin-bottom: 60px;">
+    <div class="gallery-item gallery-featured" onclick="openLightbox(70)">
+      <img src="art/charcoal/26-elderly-eyes-closeup.jpg" alt="Elderly eyes close-up" loading="lazy">
+      <div class="caption"><h3>A Life Lived</h3><span>Close-Up — Wisdom in the Eyes</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(71)">
+      <img src="art/charcoal/27-mother-hand-on-cheek.jpg" alt="Mother's hand on cheek" loading="lazy">
+      <div class="caption"><h3>Before Words</h3><span>A Mother's Touch</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(72)">
+      <img src="art/charcoal/28-two-friends-park-bench.jpg" alt="Two friends on bench" loading="lazy">
+      <div class="caption"><h3>The Saved Seat</h3><span>Fifty Years of Friendship</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(73)">
+      <img src="art/charcoal/29-child-grandmother-hands.jpg" alt="Child and grandmother hands" loading="lazy">
+      <div class="caption"><h3>Reaching Up</h3><span>Intergenerational Love</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(74)">
+      <img src="art/charcoal/30-elderly-old-photograph.jpg" alt="Looking at old photograph" loading="lazy">
+      <div class="caption"><h3>Remembering</h3><span>The Photograph</span></div>
+    </div>
+  </div>
+
+  <!-- Scenes of Hope -->
+  <div class="gallery" style="margin-bottom: 60px;">
+    <div class="gallery-item" onclick="openLightbox(75)">
+      <img src="art/charcoal/31-wheelchair-garden-path.jpg" alt="Wheelchair and garden path" loading="lazy">
+      <div class="caption"><h3>Freedom</h3><span>The Path Beyond</span></div>
+    </div>
+    <div class="gallery-item gallery-featured" onclick="openLightbox(76)">
+      <img src="art/charcoal/32-open-door-morning-light.jpg" alt="Open door morning light" loading="lazy">
+      <div class="caption"><h3>Every Morning</h3><span>A Door Opens</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(77)">
+      <img src="art/charcoal/33-seeds-sprouting-soil.jpg" alt="Seeds sprouting" loading="lazy">
+      <div class="caption"><h3>New Beginnings</h3><span>Seeds in Dark Soil</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(78)">
+      <img src="art/charcoal/34-candle-passing-flame.jpg" alt="Candle passing flame" loading="lazy">
+      <div class="caption"><h3>Passing the Flame</h3><span>Care to Care</span></div>
+    </div>
+  </div>
+
+  <!-- Biscuit -->
+  <div class="gallery" style="margin-bottom: 60px;">
+    <div class="gallery-item gallery-featured" onclick="openLightbox(79)">
+      <img src="art/charcoal/35-biscuit-fireplace.jpg" alt="Biscuit by fireplace" loading="lazy">
+      <div class="caption"><h3>Guardian</h3><span>Biscuit — By the Fire</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(80)">
+      <img src="art/charcoal/36-biscuit-desert-play.jpg" alt="Biscuit playing in desert" loading="lazy">
+      <div class="caption"><h3>Joy</h3><span>Biscuit — Desert Play</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(81)">
+      <img src="art/charcoal/37-biscuit-comforting-lap.jpg" alt="Biscuit comforting" loading="lazy">
+      <div class="caption"><h3>Comfort</h3><span>Biscuit — Head on Lap</span></div>
+    </div>
+  </div>
+
+  <!-- Arizona -->
+  <div class="gallery" style="margin-bottom: 60px;">
+    <div class="gallery-item gallery-featured" onclick="openLightbox(82)">
+      <img src="art/charcoal/38-saguaro-desert-sunrise.jpg" alt="Saguaro desert sunrise" loading="lazy">
+      <div class="caption"><h3>Desert Dawn</h3><span>Saguaro Sunrise</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(83)">
+      <img src="art/charcoal/39-desert-trail-two-figures.jpg" alt="Desert trail two figures" loading="lazy">
+      <div class="caption"><h3>The Walk</h3><span>Two Figures on a Desert Trail</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(84)">
+      <img src="art/charcoal/40-arizona-mountain-contemplation.jpg" alt="Arizona mountain contemplation" loading="lazy">
+      <div class="caption"><h3>Contemplation</h3><span>Arizona Mountain Overlook</span></div>
+    </div>
+  </div>
+
+  <!-- Abstract / Spiritual -->
+  <div class="gallery">
+    <div class="gallery-item" onclick="openLightbox(85)">
+      <img src="art/charcoal/41-tree-roots-heart.jpg" alt="Tree roots heart" loading="lazy">
+      <div class="caption"><h3>Rooted</h3><span>Heart-Shaped Roots</span></div>
+    </div>
+    <div class="gallery-item gallery-featured" onclick="openLightbox(86)">
+      <img src="art/charcoal/42-birds-taking-flight.jpg" alt="Birds taking flight" loading="lazy">
+      <div class="caption"><h3>Release</h3><span>A Flock Taking Flight</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(87)">
+      <img src="art/charcoal/43-light-through-storm-clouds.jpg" alt="Light through storm clouds" loading="lazy">
+      <div class="caption"><h3>After the Storm</h3><span>Light Returns</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="section" id="products">
+  <div class="section-header">
+    <h2>The Products</h2>
+    <p>Every product is a form of protection</p>
+  </div>
+  <div class="products">
+    <div class="product-card">
+      <h3>LionGuard</h3>
+      <div class="tagline">AI Health Concierge — "Your health, decoded."</div>
+      <p>Upload lab results, get plain-English interpretation with functional ranges. Track biomarker trends. Personalized supplement and lifestyle recommendations. Alzheimer's biomarker focus.</p>
+    </div>
+    <div class="product-card">
+      <h3>LionShield</h3>
+      <div class="tagline">Insurance Navigator — "We fight the paperwork."</div>
+      <p>AI agent that decodes coverage, files claims, generates denial appeal letters, discovers hidden benefits, and navigates Medicare/Medicaid.</p>
+    </div>
+    <div class="product-card">
+      <h3>PrideMatch</h3>
+      <div class="tagline">Caregiver Marketplace — "Find your family's perfect caregiver."</div>
+      <p>Deep matching beyond availability — personality, specialization, language, faith. Video intros, background checks, burnout prevention.</p>
+    </div>
+    <div class="product-card">
+      <h3>LionHeart</h3>
+      <div class="tagline">Holistic Care Programs — "Heal the whole person."</div>
+      <p>ReCODE Protocol guidance, Mediterranean/MIND diet meal plans, yoga, pet therapy, art therapy, faith and mindfulness, community gatherings.</p>
+    </div>
+    <div class="product-card">
+      <h3>PrideStories</h3>
+      <div class="tagline">Charcoal Animation Studio — "Every family has a story."</div>
+      <p>Original charcoal-animated short films. Custom family portraits and legacy stories. The art you see in this gallery — brought to life as animation.</p>
+    </div>
+    <div class="product-card">
+      <h3>DenKeeper</h3>
+      <div class="tagline">Smart Home — "Technology that watches over your pride."</div>
+      <p>Activity pattern monitoring, medication reminders, fall detection, family dashboard. Helping elderly people age safely at home.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<div class="section" id="roadmap">
+  <div class="section-header">
+    <h2>The Road Ahead</h2>
+    <p>From vision to impact — four phases to change the world</p>
+  </div>
+  <div class="roadmap">
+    <div class="phase">
+      <h3>Phase 1 — Foundation</h3>
+      <div class="timeline">Months 0–6</div>
+      <ul>
+        <li>501(c)(3) nonprofit + B-Corp formation</li>
+        <li>MVP: LionGuard AI Health Concierge</li>
+        <li>Charcoal art campaign + first animated short films</li>
+        <li>Website launch: lifelions.org + lifelions.com</li>
+        <li>Grant applications &amp; advisory board</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <h3>Phase 2 — Growth</h3>
+      <div class="timeline">Months 6–18</div>
+      <ul>
+        <li>LionShield &amp; PrideMatch launch</li>
+        <li>Functional medicine partnerships</li>
+        <li>Seed round: $500K–$1.5M</li>
+        <li>Monthly charcoal animation releases</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <h3>Phase 3 — Scale</h3>
+      <div class="timeline">Months 18–36</div>
+      <ul>
+        <li>Full ecosystem launch (all 6 products)</li>
+        <li>DenKeeper smart home monitoring</li>
+        <li>Series A: $3M–$8M</li>
+        <li>National caregiver network</li>
+      </ul>
+    </div>
+    <div class="phase">
+      <h3>Phase 4 — Impact</h3>
+      <div class="timeline">Years 3–5</div>
+      <ul>
+        <li>International expansion</li>
+        <li>Policy advocacy for caregiver legislation</li>
+        <li>Research partnerships</li>
+        <li>$15M annual revenue target</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- BISCUIT EXPANDED -->
+<div class="section" id="gallery-biscuit">
+  <div class="section-header">
+    <h2>Biscuit</h2>
+    <p>Rotten soldier. Sweet cheese. Good time boy. A LifeLion with a special gift.</p>
+  </div>
+
+  <h3 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.4rem;color:var(--gold-light);margin-bottom:24px;text-align:center;">Biscuit & People</h3>
+  <div class="gallery">
+    <div class="gallery-item gallery-featured" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-linda.jpg'))">
+      <img src="art/biscuit/biscuit-linda.jpg" alt="Biscuit with Linda" loading="lazy">
+      <div class="caption"><h3>Biscuit & Linda</h3><span>Their Special Bond</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-elderly-lap.jpg'))">
+      <img src="art/biscuit/biscuit-elderly-lap.jpg" alt="Biscuit head on lap" loading="lazy">
+      <div class="caption"><h3>Head on Lap</h3><span>The Weight of Comfort</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-walker.jpg'))">
+      <img src="art/biscuit/biscuit-walker.jpg" alt="Biscuit walking beside walker" loading="lazy">
+      <div class="caption"><h3>Steady Companion</h3><span>Every Step Together</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-therapy-visit.jpg'))">
+      <img src="art/biscuit/biscuit-therapy-visit.jpg" alt="Biscuit therapy visit" loading="lazy">
+      <div class="caption"><h3>Therapy Visit</h3><span>Many Hands, One Heart</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-hospital.jpg'))">
+      <img src="art/biscuit/biscuit-hospital.jpg" alt="Biscuit at hospital bed" loading="lazy">
+      <div class="caption"><h3>Night Watch</h3><span>He Never Leaves</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-wheelchair.jpg'))">
+      <img src="art/biscuit/biscuit-wheelchair.jpg" alt="Biscuit at wheelchair" loading="lazy">
+      <div class="caption"><h3>Right Here</h3><span>Devoted Eyes</span></div>
+    </div>
+    <div class="gallery-item gallery-featured" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-kids-and-elders.jpg'))">
+      <img src="art/biscuit/biscuit-kids-and-elders.jpg" alt="Biscuit with all ages" loading="lazy">
+      <div class="caption"><h3>All Ages</h3><span>Friends with Everyone</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-morning-walk.jpg'))">
+      <img src="art/biscuit/biscuit-morning-walk.jpg" alt="Biscuit leading morning walk" loading="lazy">
+      <div class="caption"><h3>Morning Walk</h3><span>Leading the Way</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-reading.jpg'))">
+      <img src="art/biscuit/biscuit-reading.jpg" alt="Child reading to Biscuit" loading="lazy">
+      <div class="caption"><h3>Story Time</h3><span>The Best Listener</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-yoga.jpg'))">
+      <img src="art/biscuit/biscuit-yoga.jpg" alt="Biscuit doing downward dog" loading="lazy">
+      <div class="caption"><h3>Downward Dog</h3><span>The Original</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-nap.jpg'))">
+      <img src="art/biscuit/biscuit-nap.jpg" alt="Biscuit napping with person" loading="lazy">
+      <div class="caption"><h3>Afternoon Nap</h3><span>Together</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-cooking.jpg'))">
+      <img src="art/biscuit/biscuit-cooking.jpg" alt="Biscuit watching cooking" loading="lazy">
+      <div class="caption"><h3>Kitchen Helper</h3><span>Hoping for Scraps</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-garden.jpg'))">
+      <img src="art/biscuit/biscuit-garden.jpg" alt="Biscuit gardening" loading="lazy">
+      <div class="caption"><h3>Digging In</h3><span>Paws in the Soil</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-porch.jpg'))">
+      <img src="art/biscuit/biscuit-porch.jpg" alt="Biscuit on porch sunset" loading="lazy">
+      <div class="caption"><h3>Porch at Sunset</h3><span>Arizona Gold</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-family.jpg'))">
+      <img src="art/biscuit/biscuit-family.jpg" alt="Biscuit with family" loading="lazy">
+      <div class="caption"><h3>Family Portrait</h3><span>Center of Everything</span></div>
+    </div>
+  </div>
+
+  <div class="divider" style="margin:60px auto;"></div>
+
+  <h3 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.4rem;color:var(--gold-light);margin-bottom:24px;text-align:center;">Biscuit & Friends</h3>
+  <div class="gallery">
+    <div class="gallery-item gallery-featured" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-lion.jpg'))">
+      <img src="art/biscuit/biscuit-lion.jpg" alt="Biscuit and lion" loading="lazy">
+      <div class="caption"><h3>Two Guardians</h3><span>Biscuit & The Lion</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-lion-cub.jpg'))">
+      <img src="art/biscuit/biscuit-lion-cub.jpg" alt="Biscuit and lion cub" loading="lazy">
+      <div class="caption"><h3>Kindred Spirits</h3><span>Nose to Nose</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-sheep.jpg'))">
+      <img src="art/biscuit/biscuit-sheep.jpg" alt="Biscuit guarding sheep" loading="lazy">
+      <div class="caption"><h3>The Guardian</h3><span>Great Pyrenees Heritage</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-cat.jpg'))">
+      <img src="art/biscuit/biscuit-cat.jpg" alt="Biscuit with cat" loading="lazy">
+      <div class="caption"><h3>Gentle Giant</h3><span>Cat Between Paws</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-butterfly.jpg'))">
+      <img src="art/biscuit/biscuit-butterfly.jpg" alt="Biscuit with butterfly" loading="lazy">
+      <div class="caption"><h3>Wonder</h3><span>Butterfly on His Nose</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-puppies.jpg'))">
+      <img src="art/biscuit/biscuit-puppies.jpg" alt="Biscuit with puppies" loading="lazy">
+      <div class="caption"><h3>Patient Uncle</h3><span>Puppies Everywhere</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-horse.jpg'))">
+      <img src="art/biscuit/biscuit-horse.jpg" alt="Biscuit with horse" loading="lazy">
+      <div class="caption"><h3>Unlikely Friends</h3><span>Field Companions</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-birds.jpg'))">
+      <img src="art/biscuit/biscuit-birds.jpg" alt="Biscuit with birds" loading="lazy">
+      <div class="caption"><h3>At Peace</h3><span>Birds Perched on a Friend</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-rabbit.jpg'))">
+      <img src="art/biscuit/biscuit-rabbit.jpg" alt="Biscuit with rabbit" loading="lazy">
+      <div class="caption"><h3>Garden Friends</h3><span>Quiet Moment</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-deer.jpg'))">
+      <img src="art/biscuit/biscuit-deer.jpg" alt="Biscuit with deer" loading="lazy">
+      <div class="caption"><h3>Forest Meeting</h3><span>Touching Noses</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-sleeping-pile.jpg'))">
+      <img src="art/biscuit/biscuit-sleeping-pile.jpg" alt="Biscuit sleeping with animals" loading="lazy">
+      <div class="caption"><h3>The Pile</h3><span>Cat, Rabbit, Lamb, Biscuit</span></div>
+    </div>
+  </div>
+
+  <div class="divider" style="margin:60px auto;"></div>
+
+  <h3 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.4rem;color:var(--gold-light);margin-bottom:24px;text-align:center;">Biscuit — Spirit</h3>
+  <div class="gallery">
+    <div class="gallery-item gallery-featured" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-bandana.jpg'))">
+      <img src="art/biscuit/biscuit-bandana.jpg" alt="Biscuit portrait" loading="lazy">
+      <div class="caption"><h3>Portrait</h3><span>Noble & Gentle</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-chuckit.jpg'))">
+      <img src="art/biscuit/biscuit-chuckit.jpg" alt="Biscuit catching ball" loading="lazy">
+      <div class="caption"><h3>Pure Joy</h3><span>ChuckIt in the Desert</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-guardian.jpg'))">
+      <img src="art/biscuit/biscuit-guardian.jpg" alt="Biscuit guardian silhouette" loading="lazy">
+      <div class="caption"><h3>The Protector</h3><span>Watching Over the Pride</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-rainbow.jpg'))">
+      <img src="art/biscuit/biscuit-rainbow.jpg" alt="Biscuit in wildflowers" loading="lazy">
+      <div class="caption"><h3>Golden Hour</h3><span>Running Through Wildflowers</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-hero.jpg'))">
+      <img src="art/biscuit/biscuit-hero.jpg" alt="Biscuit hero" loading="lazy">
+      <div class="caption"><h3>Everyday Hero</h3><span>Cape of Shadow</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-snow.jpg'))">
+      <img src="art/biscuit/biscuit-snow.jpg" alt="Biscuit in snow" loading="lazy">
+      <div class="caption"><h3>Snow Day</h3><span>Pure as His Heart</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-window.jpg'))">
+      <img src="art/biscuit/biscuit-window.jpg" alt="Biscuit at window" loading="lazy">
+      <div class="caption"><h3>Waiting</h3><span>Rain on the Glass</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-young-old.jpg'))">
+      <img src="art/biscuit/biscuit-young-old.jpg" alt="Young and old Biscuit" loading="lazy">
+      <div class="caption"><h3>All Grown Up</h3><span>From Children's Book to LifeLion</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox(getImageIndex('art/biscuit/biscuit-pride.jpg'))">
+      <img src="art/biscuit/biscuit-pride.jpg" alt="Biscuit with the pride" loading="lazy">
+      <div class="caption"><h3>The Pride</h3><span>Lion, Pyrenees, People — Together</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ANIMATIONS -->
+<div class="section" id="animations">
+  <div class="section-header">
+    <h2>Animations</h2>
+    <p>Frame-by-frame charcoal sequences — the building blocks of "Dear Basketball" style films</p>
+  </div>
+
+  <h3 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.4rem;color:var(--gold-light);margin-bottom:16px;">"Biscuit Arrives" — 10 Frames</h3>
+  <p style="color:rgba(245,240,232,0.55);font-size:0.85rem;margin-bottom:20px;font-style:italic;">An empty room, a lonely person, a nose at the door. Biscuit enters. Head on lap. A smile returns.</p>
+  <div style="display:flex;gap:12px;overflow-x:auto;padding-bottom:16px;margin-bottom:48px;">
+    <img src="art/animations/biscuit-arrives/frame-01.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-arrives/frame-01.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-arrives/frame-02.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-arrives/frame-02.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-arrives/frame-03.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-arrives/frame-03.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-arrives/frame-04.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-arrives/frame-04.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-arrives/frame-05.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-arrives/frame-05.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-arrives/frame-06.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-arrives/frame-06.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-arrives/frame-07.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-arrives/frame-07.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-arrives/frame-08.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-arrives/frame-08.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-arrives/frame-09.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-arrives/frame-09.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-arrives/frame-10.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-arrives/frame-10.jpg'))" loading="lazy">
+  </div>
+
+  <h3 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.4rem;color:var(--gold-light);margin-bottom:16px;">"Biscuit and the Lion" — 8 Frames</h3>
+  <p style="color:rgba(245,240,232,0.55);font-size:0.85rem;margin-bottom:20px;font-style:italic;">Two guardians meet on a hilltop. They touch noses. They turn to face the sunrise together.</p>
+  <div style="display:flex;gap:12px;overflow-x:auto;padding-bottom:16px;">
+    <img src="art/animations/biscuit-lion/frame-01.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-lion/frame-01.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-lion/frame-02.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-lion/frame-02.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-lion/frame-03.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-lion/frame-03.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-lion/frame-04.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-lion/frame-04.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-lion/frame-05.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-lion/frame-05.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-lion/frame-06.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-lion/frame-06.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-lion/frame-07.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-lion/frame-07.jpg'))" loading="lazy">
+    <img src="art/animations/biscuit-lion/frame-08.jpg" style="height:200px;border-radius:4px;flex-shrink:0;cursor:pointer;" onclick="openLightbox(getImageIndex('art/animations/biscuit-lion/frame-08.jpg'))" loading="lazy">
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="lion">🦁</div>
+  <p>"We will battle and we will persist, and we will be consistent, and we will do what needs to be done, and we will not cease until our job is done and we will rejoice."</p>
+  <div class="copyright">LIFELIONS · FORMERLY ZENJOI · EST. 2016 · CURING ALZHEIMER'S · 142 CHARCOAL ARTWORKS</div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lb-close" onclick="closeLightbox(event)">&times;</div>
+  <div class="lb-nav lb-prev" onclick="event.stopPropagation(); navLightbox(-1)">&#8249;</div>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-nav lb-next" onclick="event.stopPropagation(); navLightbox(1)">&#8250;</div>
+  <div class="lb-caption" id="lb-caption"></div>
+</div>
+
+<script>
+const images = [
+  // Original 25 (indices 0-24)
+  { src: 'art/charcoal/01-grandmother-daughter-holding-hands.jpg', caption: 'Holding On — Grandmother & Daughter' },
+  { src: 'art/charcoal/02-three-generations.jpg', caption: 'Three Generations' },
+  { src: 'art/charcoal/03-son-helping-father-garden.jpg', caption: 'The Garden — Son & Father' },
+  { src: 'art/charcoal/04-family-dinner-table.jpg', caption: 'The Table — Where Stories Live' },
+  { src: 'art/charcoal/05-elderly-yoga-sunlight.jpg', caption: 'Morning Practice — Yoga at Sunrise' },
+  { src: 'art/charcoal/06-doctor-patient-hopeful.jpg', caption: 'The Numbers — Hope in the Results' },
+  { src: 'art/charcoal/07-mediterranean-meal-prep.jpg', caption: 'Nourishment — Food as Medicine' },
+  { src: 'art/charcoal/08-elderly-couple-nature-trail.jpg', caption: 'The Trail — Walking Together' },
+  { src: 'art/charcoal/09-dog-beside-elderly-person.jpg', caption: 'Bear — The One Who Never Forgets' },
+  { src: 'art/charcoal/10-elderly-gardening.jpg', caption: 'Hands in Soil — Grounding' },
+  { src: 'art/charcoal/11-garden-cat-lap.jpg', caption: 'The Garden Keeper' },
+  { src: 'art/charcoal/12-walking-dog-forest.jpg', caption: 'The Forest Path — Companion' },
+  { src: 'art/charcoal/13-seniors-laughing-community.jpg', caption: 'The Gathering — Laughter as Medicine' },
+  { src: 'art/charcoal/14-art-therapy-easel.jpg', caption: 'The Last Painting — Hands Remember' },
+  { src: 'art/charcoal/15-grandparent-reading-child.jpg', caption: 'Story Time — Passing the Flame' },
+  { src: 'art/charcoal/16-community-holding-hands.jpg', caption: 'The Circle — Unbroken' },
+  { src: 'art/charcoal/17-caregiver-assisting.jpg', caption: 'Gentle Hands — Professional Care' },
+  { src: 'art/charcoal/18-puzzle-together.jpg', caption: 'The Puzzle — Patience & Presence' },
+  { src: 'art/charcoal/19-caregiver-rest.jpg', caption: '4 AM — The Unseen Sacrifice' },
+  { src: 'art/charcoal/20-hands-closeup.jpg', caption: 'Holding On — The Language of Touch' },
+  { src: 'art/charcoal/21-prayer-soft-light.jpg', caption: 'Quiet Prayer — Surrender' },
+  { src: 'art/charcoal/22-desert-sunrise-contemplation.jpg', caption: 'Desert Dawn — Arizona Contemplation' },
+  { src: 'art/charcoal/23-lion-protecting-lamb.jpg', caption: 'Guardian — The Lion & The Lamb' },
+  { src: 'art/charcoal/24-lion-family.jpg', caption: 'The Pride — Family' },
+  { src: 'art/charcoal/25-great-pyrenees-guardian.jpg', caption: 'The Protector — Biscuit\'s Spirit' },
+
+  // Storyboard 1: The Numbers (indices 25-30)
+  { src: 'art/storyboards/01-the-numbers/frame-01.jpg', caption: 'The Numbers — Maria watches her mother' },
+  { src: 'art/storyboards/01-the-numbers/frame-02.jpg', caption: 'The Numbers — Blood test results' },
+  { src: 'art/storyboards/01-the-numbers/frame-03.jpg', caption: 'The Numbers — Fear' },
+  { src: 'art/storyboards/01-the-numbers/frame-04.jpg', caption: 'The Numbers — Light breaking through' },
+  { src: 'art/storyboards/01-the-numbers/frame-05.jpg', caption: 'The Numbers — Understanding' },
+  { src: 'art/storyboards/01-the-numbers/frame-06.jpg', caption: 'The Numbers — Desert sunrise hike' },
+
+  // Storyboard 2: Paperwork Monster (indices 31-36)
+  { src: 'art/storyboards/02-paperwork-monster/frame-01.jpg', caption: 'Paperwork Monster — David at midnight' },
+  { src: 'art/storyboards/02-paperwork-monster/frame-02.jpg', caption: 'Paperwork Monster — The monster grows' },
+  { src: 'art/storyboards/02-paperwork-monster/frame-03.jpg', caption: 'Paperwork Monster — Defeated' },
+  { src: 'art/storyboards/02-paperwork-monster/frame-04.jpg', caption: 'Paperwork Monster — Golden shield' },
+  { src: 'art/storyboards/02-paperwork-monster/frame-05.jpg', caption: 'Paperwork Monster — Garden peace' },
+  { src: 'art/storyboards/02-paperwork-monster/frame-06.jpg', caption: 'Paperwork Monster — Hands together' },
+
+  // Storyboard 3: Stranger (indices 37-42)
+  { src: 'art/storyboards/03-stranger-house/frame-01.jpg', caption: 'Stranger — Sandra, defiant' },
+  { src: 'art/storyboards/03-stranger-house/frame-02.jpg', caption: 'Stranger — Cold caregiver' },
+  { src: 'art/storyboards/03-stranger-house/frame-03.jpg', caption: 'Stranger — Alone at the window' },
+  { src: 'art/storyboards/03-stranger-house/frame-04.jpg', caption: 'Stranger — Rosa arrives' },
+  { src: 'art/storyboards/03-stranger-house/frame-05.jpg', caption: 'Stranger — Hands in soil together' },
+  { src: 'art/storyboards/03-stranger-house/frame-06.jpg', caption: 'Stranger — Sandra laughing' },
+
+  // Storyboard 4: Bear (indices 43-49)
+  { src: 'art/storyboards/04-bear/frame-01.jpg', caption: 'Bear — James alone' },
+  { src: 'art/storyboards/04-bear/frame-02.jpg', caption: 'Bear — The Great Pyrenees arrives' },
+  { src: 'art/storyboards/04-bear/frame-03.jpg', caption: 'Bear — James turns away' },
+  { src: 'art/storyboards/04-bear/frame-04.jpg', caption: 'Bear — Patient at his feet' },
+  { src: 'art/storyboards/04-bear/frame-05.jpg', caption: 'Bear — Head on chest, tears of relief' },
+  { src: 'art/storyboards/04-bear/frame-06.jpg', caption: 'Bear — Face in fur' },
+  { src: 'art/storyboards/04-bear/frame-07.jpg', caption: 'Bear — Walking together' },
+
+  // Storyboard 5: Last Painting (indices 50-55)
+  { src: 'art/storyboards/05-last-painting/frame-01.jpg', caption: 'Last Painting — Eleanor sits vacant' },
+  { src: 'art/storyboards/05-last-painting/frame-02.jpg', caption: 'Last Painting — Charcoal in her hand' },
+  { src: 'art/storyboards/05-last-painting/frame-03.jpg', caption: 'Last Painting — Her hand moves' },
+  { src: 'art/storyboards/05-last-painting/frame-04.jpg', caption: 'Last Painting — A lion takes shape' },
+  { src: 'art/storyboards/05-last-painting/frame-05.jpg', caption: 'Last Painting — The real smile' },
+  { src: 'art/storyboards/05-last-painting/frame-06.jpg', caption: 'Last Painting — Rough and magnificent' },
+
+  // Storyboard 6: 4 AM (indices 56-61)
+  { src: 'art/storyboards/06-four-am/frame-01.jpg', caption: '4 AM — Awake in darkness' },
+  { src: 'art/storyboards/06-four-am/frame-02.jpg', caption: '4 AM — Blue light, searching' },
+  { src: 'art/storyboards/06-four-am/frame-03.jpg', caption: '4 AM — Other faces awake too' },
+  { src: 'art/storyboards/06-four-am/frame-04.jpg', caption: '4 AM — Release, not defeat' },
+  { src: 'art/storyboards/06-four-am/frame-05.jpg', caption: '4 AM — Dawn creeping in' },
+  { src: 'art/storyboards/06-four-am/frame-06.jpg', caption: '4 AM — Sunrise at the window' },
+
+  // Storyboard 7: The Pride (indices 62-69)
+  { src: 'art/storyboards/07-the-pride/frame-01.jpg', caption: 'The Pride — A single line' },
+  { src: 'art/storyboards/07-the-pride/frame-02.jpg', caption: 'The Pride — The lion emerges' },
+  { src: 'art/storyboards/07-the-pride/frame-03.jpg', caption: 'The Pride — A grandmother from charcoal' },
+  { src: 'art/storyboards/07-the-pride/frame-04.jpg', caption: 'The Pride — The procession joins' },
+  { src: 'art/storyboards/07-the-pride/frame-05.jpg', caption: 'The Pride — Scenes of care' },
+  { src: 'art/storyboards/07-the-pride/frame-06.jpg', caption: 'The Pride — Garden, painting, prayer' },
+  { src: 'art/storyboards/07-the-pride/frame-07.jpg', caption: 'The Pride — All together' },
+  { src: 'art/storyboards/07-the-pride/frame-08.jpg', caption: 'The Pride — You are not alone. You are pride.' },
+
+  // New art pieces (indices 70-87)
+  { src: 'art/charcoal/26-elderly-eyes-closeup.jpg', caption: 'A Life Lived — Wisdom in the Eyes' },
+  { src: 'art/charcoal/27-mother-hand-on-cheek.jpg', caption: 'Before Words — A Mother\'s Touch' },
+  { src: 'art/charcoal/28-two-friends-park-bench.jpg', caption: 'The Saved Seat — Fifty Years' },
+  { src: 'art/charcoal/29-child-grandmother-hands.jpg', caption: 'Reaching Up — Intergenerational Love' },
+  { src: 'art/charcoal/30-elderly-old-photograph.jpg', caption: 'Remembering — The Photograph' },
+  { src: 'art/charcoal/31-wheelchair-garden-path.jpg', caption: 'Freedom — The Path Beyond' },
+  { src: 'art/charcoal/32-open-door-morning-light.jpg', caption: 'Every Morning — A Door Opens' },
+  { src: 'art/charcoal/33-seeds-sprouting-soil.jpg', caption: 'New Beginnings — Seeds in Dark Soil' },
+  { src: 'art/charcoal/34-candle-passing-flame.jpg', caption: 'Passing the Flame — Care to Care' },
+  { src: 'art/charcoal/35-biscuit-fireplace.jpg', caption: 'Guardian — Biscuit by the Fire' },
+  { src: 'art/charcoal/36-biscuit-desert-play.jpg', caption: 'Joy — Biscuit at Play' },
+  { src: 'art/charcoal/37-biscuit-comforting-lap.jpg', caption: 'Comfort — Biscuit\'s Head on Lap' },
+  { src: 'art/charcoal/38-saguaro-desert-sunrise.jpg', caption: 'Desert Dawn — Saguaro Sunrise' },
+  { src: 'art/charcoal/39-desert-trail-two-figures.jpg', caption: 'The Walk — Desert Trail Together' },
+  { src: 'art/charcoal/40-arizona-mountain-contemplation.jpg', caption: 'Contemplation — Arizona Overlook' },
+  { src: 'art/charcoal/41-tree-roots-heart.jpg', caption: 'Rooted — Heart-Shaped Roots' },
+  { src: 'art/charcoal/42-birds-taking-flight.jpg', caption: 'Release — A Flock Taking Flight' },
+  { src: 'art/charcoal/43-light-through-storm-clouds.jpg', caption: 'After the Storm — Light Returns' },
+
+  // Biscuit with People
+  { src: 'art/biscuit/biscuit-linda.jpg', caption: 'Biscuit & Linda — Their Special Bond' },
+  { src: 'art/biscuit/biscuit-elderly-lap.jpg', caption: 'Head on Lap — The Weight of Comfort' },
+  { src: 'art/biscuit/biscuit-walker.jpg', caption: 'Steady Companion — Every Step Together' },
+  { src: 'art/biscuit/biscuit-therapy-visit.jpg', caption: 'Therapy Visit — Many Hands, One Heart' },
+  { src: 'art/biscuit/biscuit-hospital.jpg', caption: 'Night Watch — He Never Leaves' },
+  { src: 'art/biscuit/biscuit-wheelchair.jpg', caption: 'Right Here — Devoted Eyes' },
+  { src: 'art/biscuit/biscuit-kids-and-elders.jpg', caption: 'All Ages — Friends with Everyone' },
+  { src: 'art/biscuit/biscuit-morning-walk.jpg', caption: 'Morning Walk — Leading the Way' },
+  { src: 'art/biscuit/biscuit-reading.jpg', caption: 'Story Time — The Best Listener' },
+  { src: 'art/biscuit/biscuit-yoga.jpg', caption: 'Downward Dog — The Original' },
+  { src: 'art/biscuit/biscuit-nap.jpg', caption: 'Afternoon Nap — Together' },
+  { src: 'art/biscuit/biscuit-cooking.jpg', caption: 'Kitchen Helper — Hoping for Scraps' },
+  { src: 'art/biscuit/biscuit-garden.jpg', caption: 'Digging In — Paws in the Soil' },
+  { src: 'art/biscuit/biscuit-porch.jpg', caption: 'Porch at Sunset — Arizona Gold' },
+  { src: 'art/biscuit/biscuit-family.jpg', caption: 'Family Portrait — Center of Everything' },
+
+  // Biscuit with Animals
+  { src: 'art/biscuit/biscuit-lion.jpg', caption: 'Two Guardians — Biscuit & The Lion' },
+  { src: 'art/biscuit/biscuit-lion-cub.jpg', caption: 'Kindred Spirits — Nose to Nose' },
+  { src: 'art/biscuit/biscuit-sheep.jpg', caption: 'The Guardian — Great Pyrenees Heritage' },
+  { src: 'art/biscuit/biscuit-cat.jpg', caption: 'Gentle Giant — Cat Between Paws' },
+  { src: 'art/biscuit/biscuit-butterfly.jpg', caption: 'Wonder — Butterfly on His Nose' },
+  { src: 'art/biscuit/biscuit-puppies.jpg', caption: 'Patient Uncle — Puppies Everywhere' },
+  { src: 'art/biscuit/biscuit-horse.jpg', caption: 'Unlikely Friends — Field Companions' },
+  { src: 'art/biscuit/biscuit-birds.jpg', caption: 'At Peace — Birds Perched on a Friend' },
+  { src: 'art/biscuit/biscuit-rabbit.jpg', caption: 'Garden Friends — Quiet Moment' },
+  { src: 'art/biscuit/biscuit-deer.jpg', caption: 'Forest Meeting — Touching Noses' },
+  { src: 'art/biscuit/biscuit-sleeping-pile.jpg', caption: 'The Pile — Cat, Rabbit, Lamb, Biscuit' },
+
+  // Biscuit Spirit
+  { src: 'art/biscuit/biscuit-bandana.jpg', caption: 'Portrait — Noble & Gentle' },
+  { src: 'art/biscuit/biscuit-chuckit.jpg', caption: 'Pure Joy — ChuckIt in the Desert' },
+  { src: 'art/biscuit/biscuit-guardian.jpg', caption: 'The Protector — Watching Over the Pride' },
+  { src: 'art/biscuit/biscuit-rainbow.jpg', caption: 'Golden Hour — Running Through Wildflowers' },
+  { src: 'art/biscuit/biscuit-hero.jpg', caption: 'Everyday Hero — Cape of Shadow' },
+  { src: 'art/biscuit/biscuit-snow.jpg', caption: 'Snow Day — Pure as His Heart' },
+  { src: 'art/biscuit/biscuit-window.jpg', caption: 'Waiting — Rain on the Glass' },
+  { src: 'art/biscuit/biscuit-young-old.jpg', caption: 'All Grown Up — From Children\'s Book to LifeLion' },
+  { src: 'art/biscuit/biscuit-pride.jpg', caption: 'The Pride — Lion, Pyrenees, People' },
+
+  // Animation: Biscuit Arrives
+  { src: 'art/animations/biscuit-arrives/frame-01.jpg', caption: 'Biscuit Arrives — Empty room, lonely person' },
+  { src: 'art/animations/biscuit-arrives/frame-02.jpg', caption: 'Biscuit Arrives — A nose at the door' },
+  { src: 'art/animations/biscuit-arrives/frame-03.jpg', caption: 'Biscuit Arrives — Head pushing through' },
+  { src: 'art/animations/biscuit-arrives/frame-04.jpg', caption: 'Biscuit Arrives — Walking in slowly' },
+  { src: 'art/animations/biscuit-arrives/frame-05.jpg', caption: 'Biscuit Arrives — Approaching' },
+  { src: 'art/animations/biscuit-arrives/frame-06.jpg', caption: 'Biscuit Arrives — Sitting beside' },
+  { src: 'art/animations/biscuit-arrives/frame-07.jpg', caption: 'Biscuit Arrives — Head on lap' },
+  { src: 'art/animations/biscuit-arrives/frame-08.jpg', caption: 'Biscuit Arrives — Hand reaching down' },
+  { src: 'art/animations/biscuit-arrives/frame-09.jpg', caption: 'Biscuit Arrives — Starting to smile' },
+  { src: 'art/animations/biscuit-arrives/frame-10.jpg', caption: 'Biscuit Arrives — No longer alone' },
+
+  // Animation: Biscuit and the Lion
+  { src: 'art/animations/biscuit-lion/frame-01.jpg', caption: 'Biscuit & Lion — Alone on a hilltop' },
+  { src: 'art/animations/biscuit-lion/frame-02.jpg', caption: 'Biscuit & Lion — A shape in the mist' },
+  { src: 'art/animations/biscuit-lion/frame-03.jpg', caption: 'Biscuit & Lion — The lion approaches' },
+  { src: 'art/animations/biscuit-lion/frame-04.jpg', caption: 'Biscuit & Lion — Facing each other' },
+  { src: 'art/animations/biscuit-lion/frame-05.jpg', caption: 'Biscuit & Lion — They touch noses' },
+  { src: 'art/animations/biscuit-lion/frame-06.jpg', caption: 'Biscuit & Lion — Turning together' },
+  { src: 'art/animations/biscuit-lion/frame-07.jpg', caption: 'Biscuit & Lion — Walking side by side' },
+  { src: 'art/animations/biscuit-lion/frame-08.jpg', caption: 'Biscuit & Lion — Guardians at sunrise' },
+];
+
+function getImageIndex(src) {
+  return images.findIndex(img => img.src === src);
+}
+
+let currentIndex = 0;
+
+function openLightbox(i) {
+  currentIndex = i;
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lb-img').src = images[i].src;
+  document.getElementById('lb-caption').textContent = images[i].caption;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+  if (e.target.classList.contains('lb-nav')) return;
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function navLightbox(dir) {
+  currentIndex = (currentIndex + dir + images.length) % images.length;
+  document.getElementById('lb-img').src = images[currentIndex].src;
+  document.getElementById('lb-caption').textContent = images[currentIndex].caption;
+}
+
+document.addEventListener('keydown', (e) => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('active')) return;
+  if (e.key === 'Escape') { lb.classList.remove('active'); document.body.style.overflow = ''; }
+  if (e.key === 'ArrowLeft') navLightbox(-1);
+  if (e.key === 'ArrowRight') navLightbox(1);
+});
+</script>
+
+</body>
+</html>
