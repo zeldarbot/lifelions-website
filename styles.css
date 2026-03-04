@@ -2313,3 +2313,19 @@ input, select, textarea { font-family: inherit; font-size: inherit; }
     object-fit: contain;
     opacity: 0.9;
 }
+
+/* Pillar Showcase Image */
+.pillar-showcase-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+}
+
+.pillar-showcase:has(.pillar-showcase-image) {
+    padding-top: 140px;
+}
